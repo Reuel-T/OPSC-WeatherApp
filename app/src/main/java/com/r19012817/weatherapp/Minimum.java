@@ -1,7 +1,7 @@
 package com.r19012817.weatherapp;
 
 public class Minimum {
-    private int Value;
+    private double Value;
     private String Unit;
     private int UnitType;
 
@@ -9,7 +9,7 @@ public class Minimum {
         this.Value = Value;
     }
 
-    public int getValue() {
+    public double getValue() {
         return this.Value;
     }
 

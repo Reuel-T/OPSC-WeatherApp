@@ -4,6 +4,7 @@ public class Forecast {
     private String Date;
     private String MinTemp;
     private String MaxTemp;
+    private String ImageURL;
 
     public String getDate() {
         return Date;
@@ -27,5 +28,13 @@ public class Forecast {
 
     public void setMaxTemp(String maxTemp) {
         MaxTemp = maxTemp;
+    }
+
+    public String getImageURL() {
+        return ImageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        ImageURL = imageURL;
     }
 }

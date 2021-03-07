@@ -1,7 +1,7 @@
 package com.r19012817.weatherapp;
 
 public class Maximum {
-    private int Value;
+    private double Value;
     private String Unit;
     private int UnitType;
 
@@ -9,7 +9,7 @@ public class Maximum {
         this.Value = Value;
     }
 
-    public int getValue() {
+    public double getValue() {
         return this.Value;
     }
 

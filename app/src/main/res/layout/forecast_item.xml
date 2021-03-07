@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp">
+
+        <ImageView
+            android:id="@+id/imv_icon"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:padding="2dp" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/imv_icon" />
+
+        <TextView
+            android:id="@+id/tv_temperatures"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="69*C / 96*C"
+            android:layout_toEndOf="@+id/imv_icon"
+            android:layout_below="@+id/tv_date" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
