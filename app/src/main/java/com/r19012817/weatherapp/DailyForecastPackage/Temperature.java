@@ -1,4 +1,4 @@
-package com.r19012817.weatherapp;
+package com.r19012817.weatherapp.DailyForecastPackage;
 
 public class Temperature {
     private Minimum Minimum;

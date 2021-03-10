@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/txvData"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lt_city_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:hint="CITY NAME">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tf_city_name"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/bt_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_toEndOf="@+id/lt_city_name"
+        android:gravity="center"
+        android:text="Search" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_forecasts"
+        android:layout_below="@+id/lt_city_name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="4dp"
+        android:layout_height="fill_parent"
         android:background="@color/teal_700"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="152dp" />
+        android:padding="4dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

@@ -1,5 +1,7 @@
 package com.r19012817.weatherapp;
 
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,11 +11,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
+import com.r19012817.weatherapp.DailyForecastPackage.Forecast;
+
 import java.util.ArrayList;
 
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastViewHolder> {
 
     ArrayList<Forecast> forecasts;
+    Context ctx;
 
     public static class ForecastViewHolder extends RecyclerView.ViewHolder {
 
@@ -29,8 +37,9 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         }
     }
 
-    public ForecastAdapter(ArrayList<Forecast> forecasts) {
+    public ForecastAdapter(ArrayList<Forecast> forecasts, Context context) {
         this.forecasts = forecasts;
+        this.ctx = context;
     }
 
     @NonNull
@@ -45,7 +54,28 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
     public void onBindViewHolder(@NonNull ForecastViewHolder holder, int position) {
         Forecast fc = forecasts.get(position);
         //holder.imv_icon.setImageBitmap(getBitmapFromURL(fc.getImageURL()));
-        new ImageLoadTask(fc.getImageURL(), holder.imv_icon).execute();
+        //new ImageLoadTask(fc.getImageURL(), holder.imv_icon).execute();
+        // Retrieves an image specified by the URL, displays it in the UI.
+
+        String url = fc.getImageURL();
+
+        ImageRequest request = new ImageRequest(url,
+                new Response.Listener<Bitmap>() {
+                    @Override
+                    public void onResponse(Bitmap bitmap) {
+                        holder.imv_icon.setImageBitmap(bitmap);
+                    }
+                }, 0, 0, null,
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        // Access the RequestQueue through your singleton class.
+        VolleySingleton.getInstance(ctx).addToRequestQueue(request);
+
+
         holder.tv_date.setText(fc.getDate());
         holder.tv_temperature.setText(String.format("%s°C \\ %s°C", fc.getMaxTemp(), fc.getMinTemp()));
     }

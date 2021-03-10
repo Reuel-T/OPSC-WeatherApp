@@ -1,6 +1,6 @@
-package com.r19012817.weatherapp;
+package com.r19012817.weatherapp.DailyForecastPackage;
 
-public class Maximum {
+public class Minimum {
     private double Value;
     private String Unit;
     private int UnitType;

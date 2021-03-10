@@ -1,13 +1,13 @@
-package com.r19012817.weatherapp;
+package com.r19012817.weatherapp.DailyForecastPackage;
 
 import java.util.List;
 
 public class DailyForecasts {
     private String Date;
     private int EpochDate;
-    private Temperature Temperature;
+    private com.r19012817.weatherapp.DailyForecastPackage.Temperature Temperature;
     private Day Day;
-    private Night Night;
+    private com.r19012817.weatherapp.DailyForecastPackage.Night Night;
     private List<String> Sources;
     private String MobileLink;
     private String Link;

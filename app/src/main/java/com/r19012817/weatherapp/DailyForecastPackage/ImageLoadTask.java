@@ -1,4 +1,4 @@
-package com.r19012817.weatherapp;
+package com.r19012817.weatherapp.DailyForecastPackage;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
