@@ -26,10 +26,10 @@ public class NetworkUtils {
     //Generates a request URL for a 5 day forecast based on the given city code
     public static String get5DayForecastURL(String cityCode) {
         Uri uri = Uri.parse(WEATHERBASE_URL).buildUpon()                                            //The base URL for all AccuWeather API calls
-                .appendEncodedPath(FORECASTS_5)                                             //The path for the 5 day forecast
-                .appendEncodedPath(cityCode)                                                //The code for the selected city
-                .appendQueryParameter(PARAM_APIKEY, BuildConfig.ACCUWEATHER_API_KEY)        //The API key
-                .appendQueryParameter(PARAM_METRIC, TRUE).build();                          //Sets the return values to metric
+                .appendEncodedPath(FORECASTS_5)                                                     //The path for the 5 day forecast
+                .appendEncodedPath(cityCode)                                                        //The code for the selected city
+                .appendQueryParameter(PARAM_APIKEY, BuildConfig.ACCUWEATHER_API_KEY)                //The API key
+                .appendQueryParameter(PARAM_METRIC, TRUE).build();                                  //Sets the return values to metric
 
         URL url = null;
         try {
@@ -45,10 +45,10 @@ public class NetworkUtils {
 
     public static String getCitiesURL(String query) {
 
-        Uri uri = Uri.parse(WEATHERBASE_URL).buildUpon()
-                .appendEncodedPath(SEARCH_CITIES)                                           //The base URL for all AccuWeather API calls
-                .appendQueryParameter(PARAM_APIKEY, BuildConfig.ACCUWEATHER_API_KEY)        //The API Key
-                .appendQueryParameter(PARAM_QUERY, query).build();                          //The Search Query
+        Uri uri = Uri.parse(WEATHERBASE_URL).buildUpon()                                            //The base URL for all AccuWeather API calls
+                .appendEncodedPath(SEARCH_CITIES)                                                   //The search cities part of the URL
+                .appendQueryParameter(PARAM_APIKEY, BuildConfig.ACCUWEATHER_API_KEY)                //The API Key
+                .appendQueryParameter(PARAM_QUERY, query).build();                                  //The Search Query
 
         URL url = null;
         try {
