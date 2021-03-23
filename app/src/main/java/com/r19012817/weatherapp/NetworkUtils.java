@@ -11,6 +11,7 @@ public class NetworkUtils {
     private static final String WEATHERBASE_URL = "https://dataservice.accuweather.com/";
     private static final String FORECASTS_5 = "forecasts/v1/daily/5day/";
     private static final String SEARCH_CITIES = "locations/v1/cities/search";
+    private static final String SEARCH_GEOPOSITION = "locations/v1/cities/geoposition/search";
 
     //Parameters
     private static final String PARAM_METRIC = "metric";
@@ -58,6 +59,25 @@ public class NetworkUtils {
         }
 
         Log.i("SEARCH_CITY_REQUEST_URL", url.toString());
+
+        return url.toString();
+    }
+
+    //"https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=EalVwMsEVu1qH0ANG4KAGrrttH3G7QQk&q=-29.333333333333332%2C31.27064539461209"
+    public static String getGeopositionURL(double latitude, double longitude) {
+        Uri uri = Uri.parse(WEATHERBASE_URL).buildUpon()
+                .appendEncodedPath(SEARCH_GEOPOSITION)
+                .appendQueryParameter(PARAM_APIKEY, BuildConfig.ACCUWEATHER_API_KEY)
+                .appendQueryParameter(PARAM_QUERY, latitude + "," + longitude).build();
+
+        URL url = null;
+        try {
+            url = new URL(uri.toString());
+        } catch (Exception e) {
+            Log.e("GEO_POSITION_URL_ERROR", e.getMessage(), e);
+        }
+
+        Log.i("GEO_POSITION_URL", url.toString());
 
         return url.toString();
     }

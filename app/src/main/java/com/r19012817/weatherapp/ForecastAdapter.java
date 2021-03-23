@@ -2,6 +2,7 @@ package com.r19012817.weatherapp;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,9 +76,14 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         // Access the RequestQueue through your singleton class.
         VolleySingleton.getInstance(ctx).addToRequestQueue(request);
 
+        try {
+            holder.tv_date.setText(fc.getDate());
+            holder.tv_temperature.setText(String.format("%s°C \\ %s°C", fc.getMaxTemp(), fc.getMinTemp()));
+        } catch (Exception e) {
+            Log.i("TIME_ERROR", e.getMessage());
+        }
 
-        holder.tv_date.setText(fc.getDate());
-        holder.tv_temperature.setText(String.format("%s°C \\ %s°C", fc.getMaxTemp(), fc.getMinTemp()));
+
     }
 
     @Override

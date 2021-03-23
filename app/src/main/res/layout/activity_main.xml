@@ -28,13 +28,25 @@
         android:gravity="center"
         android:text="Search" />
 
+    <TextView
+        android:id="@+id/tv_city_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lt_city_name"
+        android:text="CITY" />
+
+    <Button
+        android:id="@+id/bt_get_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_city_name"
+        android:text="Get Location" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_forecasts"
-        android:layout_below="@+id/lt_city_name"
+        android:layout_below="@+id/bt_get_location"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:background="@color/teal_700"
         android:padding="4dp" />
-
 
 </RelativeLayout>
