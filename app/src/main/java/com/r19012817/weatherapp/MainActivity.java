@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     protected void phoneTheAPI() {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/305605?apikey=EalVwMsEVu1qH0ANG4KAGrrttH3G7QQk&metric=true";
+        String url = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/305605?apikey=API_KEY&metric=true";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
